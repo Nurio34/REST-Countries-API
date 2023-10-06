@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Babylonica&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Babylonica&family=Roboto:wght@400;700&display=swap");
 *,
 *::before,
 *::after {
@@ -257,80 +257,6 @@ template {
   display: none;
 }
 
-:root {
-  --clr1: rgb(91, 8, 136);
-  --clr2: rgb(113, 58, 190);
-  --clr3: rgb(157, 118, 193);
-  --clr4: rgb(229, 207, 247);
-  --clr5: rgb(255, 255, 255);
-  --body: white;
-  --box-shadow-1: 0 0 5px 1px black;
-  --padding-1: min(1vw, 6px) min(4vw, 30px);
-  --border-radius-1: 0.2rem;
-  --width-form: min(calc(100vw - 2rem), 400px);
-  --bg-Blue: var(--clr1);
-  --txt-clr-White: rgb(255, 255, 255);
-  --ff-Babylonica: "Babylonica", cursive;
-  --fs-1: 0.8rem;
-}
-
-:root:has(body.night) {
-  --body: black;
-}
-
-body#home {
-  background-color: transparent;
-}
-body#home header {
-  background-color: var(--bg-Blue);
-  color: white;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  justify-items: unset;
-  align-content: unset;
-  align-items: center;
-  column-gap: 1rem;
-  row-gap: unset;
-}
-body#home header .logo {
-  font-family: var(--ff-Babylonica);
-  font-size: 2rem;
-  font-weight: 900;
-}
-body#home header nav.menu {
-  display: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-body#home header nav.menu .wrapper .menuList {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-  transition: 0.4s;
-  background-color: var(--clr5);
-  box-shadow: var(--box-shadow-1);
-  padding: var(--padding-1);
-  padding-inline-start: 0.4rem;
-  border-radius: var(--border-radius-1);
-}
-body#home header nav.menu .wrapper .menuList li {
-  list-style-type: circle;
-  color: var(--clr1);
-  list-style-position: inside;
-}
-body#home header nav.menu .wrapper .menuList li a {
-  color: var(--clr1);
-  margin-inline-start: -0.6rem;
-}
-body#home header nav.menu .wrapper .menuList.visible {
-  z-index: 0;
-  opacity: 1;
-  transform: translateY(10%);
-}
 body#home details.guide-links {
   position: fixed;
   bottom: 0;
