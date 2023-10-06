@@ -1,0 +1,20 @@
+@mixin flex(
+  $drct,
+  $wrap,
+  $just-cont,
+  $just-itms,
+  $algn-cont,
+  $algn-itms,
+  $clmn-gap,
+  $row-gap
+) {
+  display: flex;
+  flex-direction: $drct;
+  flex-wrap: $wrap;
+  justify-content: $just-cont;
+  justify-items: $just-itms;
+  align-content: $algn-cont;
+  align-items: $algn-itms;
+  column-gap: $clmn-gap;
+  row-gap: $row-gap;
+}

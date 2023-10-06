@@ -1,0 +1,118 @@
+:root {
+  --clr1: rgb(91, 8, 136);
+  --clr2: rgb(113, 58, 190);
+  --clr3: rgb(157, 118, 193);
+  --clr4: rgb(229, 207, 247);
+  --clr5: rgb(255, 255, 255);
+  --body: white;
+
+  --box-shadow-1: 0 0 5px 1px black;
+
+  --padding-1: min(1vw, 6px) min(4vw, 30px);
+
+  --border-radius-1: 0.2rem;
+
+  --width-form: min(calc(100vw - 2rem), 400px);
+
+  --bg-Blue: var(--clr1);
+
+  --txt-clr-White: rgb(255, 255, 255);
+
+  --ff-Babylonica: "Babylonica", cursive;
+
+  --fs-1: 0.8rem;
+}
+
+:root:has(body.night) {
+  --body: black;
+}
+
+body#home {
+  background-color: transparent;
+
+  header {
+    background-color: var(--bg-Blue);
+    color: white;
+    @include flex(
+      row,
+      nowrap,
+      space-between,
+      unset,
+      unset,
+      center,
+      1rem,
+      unset
+    );
+
+    .logo {
+      font-family: var(--ff-Babylonica);
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    nav.menu {
+      display: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      .wrapper {
+        button {
+        }
+
+        .menuList {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+          transition: 0.4s;
+          background-color: var(--clr5);
+          box-shadow: var(--box-shadow-1);
+          padding: var(--padding-1);
+          padding-inline-start: 0.4rem;
+          border-radius: var(--border-radius-1);
+
+          li {
+            list-style-type: circle;
+            color: var(--clr1);
+            list-style-position: inside;
+
+            a {
+              color: var(--clr1);
+              margin-inline-start: -0.6rem;
+            }
+          }
+
+          &.visible {
+            z-index: 0;
+            opacity: 1;
+            transform: translateY(10%);
+          }
+        }
+      }
+    }
+  }
+  details.guide-links {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: rgb(253, 31, 253);
+    cursor: pointer;
+
+    nav {
+      ul {
+        li {
+          a {
+            color: white;
+            transition: 0.2s;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
