@@ -1,4 +1,26 @@
 
-@media (min-width:800px) {
+@media (min-width:750px) {
 
+    body {
+
+        .flex {
+            display: flex;
+        
+            &.btwn-cntr {
+              justify-content: space-between;
+              align-items: center;
+            }
+        
+            &.strt-cntr {
+              justify-content: flex-start;
+              align-items: center;
+            }
+        
+            &.clmn-1 {
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: flex-start;
+            }
+          }
+    }
 }

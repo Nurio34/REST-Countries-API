@@ -2,32 +2,188 @@
 
 <html lang="en">
   <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Newsletter Signup Form</title>
 
-    <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon-32x32.png"
+      type="image/x-icon"
+    />
 
-    <link rel="stylesheet" type="text/css" href="./css/style.min.css" >
+    <link rel="stylesheet" type="text/css" href="./css/style.min.css" />
 
-    <link rel="stylesheet" href="https://kit.fontawesome.com/b69fb5b7db.css" crossorigin="anonymous" >
+    <link
+      rel="stylesheet"
+      href="https://kit.fontawesome.com/b69fb5b7db.css"
+      crossorigin="anonymous"
+    />
 
-    <script src="https://kit.fontawesome.com/b69fb5b7db.js" crossorigin="anonymous" ></script>
+    <script
+      src="https://kit.fontawesome.com/b69fb5b7db.js"
+      crossorigin="anonymous"
+    ></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <meta name="description" content="NAME">
-    <meta name="keywords" content="NAME">
-    <meta name="author" content="Nuri Salih Ersoy">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Babylonica&family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="description" content="NAME" />
+    <meta name="keywords" content="NAME" />
+    <meta name="author" content="Nuri Salih Ersoy" />
     <!-- <base href="127.0.0.1:5500/"> -->
   </head>
 
   <body id="home">
-
+    <!-- HEADER -->
+    <p class="danger">Heder kısmındaki pading margin ayarlamalarında kaldım</p>
+    <header>
+      <div class="logoWrapper flex btwn-cntr">
+        <!-- LOGO -->
+        <h1>Where in the world?</h1>
+        <!-- MODE -->
+        <label for="modeCheck">
+          <i class="fa-regular fa-moon"></i>
+          Dark Mode
+          <input class="modeCheck" type="checkbox" name="Mode" id="modeCheck" />
+        </label>
+      </div>
+      <nav class="searchNav flex clmn-1">
+        <!-- SEARCH INPUT -->
+        <div class="wrapper flex strt-cntr">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            class="searchInp"
+            type="search"
+            name="Search"
+            placeholder="Search for a country..."
+            aria-label="Search for a country"
+          />
+        </div>
+        <!--CUSTOn SELECT -->
+        <div class="select flex clmn-2">
+          <!-- SHOW OPTIONS BUTTON -->
+          <button class="selectBtn flex btwn-cntr">
+            Filter by Region
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <!-- OPTIONS -->
+          <div class="options">
+            <ul>
+              <li><button>Africa</button></li>
+              <li><button>America</button></li>
+              <li><button>Asia</button></li>
+              <li><button>Europe</button></li>
+              <li><button>Oceania</button></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- MAIN -->
+    <main>
+      <!-- HOME SECTION -->
+      <section class="home">
+        <ul>
+          <li>
+            <figure>
+              <img src="https://flagcdn.com/w320/pf.png" alt="" />
+            </figure>
+            <figcaption>
+              <h2>Germany</h2>
+              <p>Population: <span>81.770.900</span></p>
+              <p>Region: <span>Europe</span></p>
+              <p>Capital: <span>Berlin</span></p>
+            </figcaption>
+          </li>
+          <li>
+            <figure>
+              <img src="https://flagcdn.com/w320/pf.png" alt="" />
+            </figure>
+            <figcaption>
+              <h2>Germany</h2>
+              <p>Population: <span>81.770.900</span></p>
+              <p>Region: <span>Europe</span></p>
+              <p>Capital: <span>Berlin</span></p>
+            </figcaption>
+          </li>
+          <li>
+            <figure>
+              <img src="https://flagcdn.com/w320/pf.png" alt="" />
+            </figure>
+            <figcaption>
+              <h2>Germany</h2>
+              <p>Population: <span>81.770.900</span></p>
+              <p>Region: <span>Europe</span></p>
+              <p>Capital: <span>Berlin</span></p>
+            </figcaption>
+          </li>
+          <li>
+            <figure>
+              <img src="https://flagcdn.com/w320/pf.png" alt="" />
+            </figure>
+            <figcaption>
+              <h2>Germany</h2>
+              <p>Population: <span>81.770.900</span></p>
+              <p>Region: <span>Europe</span></p>
+              <p>Capital: <span>Berlin</span></p>
+            </figcaption>
+          </li>
+          <li>
+            <figure>
+              <img src="https://flagcdn.com/w320/pf.png" alt="" />
+            </figure>
+            <figcaption>
+              <h2>Germany</h2>
+              <p>Population: <span>81.770.900</span></p>
+              <p>Region: <span>Europe</span></p>
+              <p>Capital: <span>Berlin</span></p>
+            </figcaption>
+          </li>
+          <li>
+            <figure>
+              <img src="https://flagcdn.com/w320/pf.png" alt="" />
+            </figure>
+            <figcaption>
+              <h2>Germany</h2>
+              <p>Population: <span>81.770.900</span></p>
+              <p>Region: <span>Europe</span></p>
+              <p>Capital: <span>Berlin</span></p>
+            </figcaption>
+          </li>
+          <li>
+            <figure>
+              <img src="https://flagcdn.com/w320/pf.png" alt="" />
+            </figure>
+            <figcaption>
+              <h2>Germany</h2>
+              <p>Population: <span>81.770.900</span></p>
+              <p>Region: <span>Europe</span></p>
+              <p>Capital: <span>Berlin</span></p>
+            </figcaption>
+          </li>
+          <li>
+            <figure>
+              <img src="https://flagcdn.com/w320/pf.png" alt="" />
+            </figure>
+            <figcaption>
+              <h2>Germany</h2>
+              <p>Population: <span>81.770.900</span></p>
+              <p>Region: <span>Europe</span></p>
+              <p>Capital: <span>Berlin</span></p>
+            </figcaption>
+          </li>
+        </ul>
+      </section>
+      <!-- DETAILS SECTION -->
+    </main>
+    <!-- DETAILS -->
     <details class="guide-links">
       <summary>Guides</summary>
       <nav>

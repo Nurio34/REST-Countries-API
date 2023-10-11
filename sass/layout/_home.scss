@@ -1,4 +1,182 @@
-body#home {
+
+:root {
+
+  // ### Neutral
+
+--DarkBlue--DarkModeElements-: hsl(209, 23%, 22%);
+--VeryDarkBlue--DarkModeBackground-: hsl(207, 26%, 17%);
+--VeryDarkBlue--LightModeText: hsl(200, 15%, 8%);
+--DarkGray--LightModeInput: hsl(0, 0%, 52%);
+--VeryLightGray--LightModeBackground: hsl(0, 0%, 98%);
+--White--DarkModeText-LightModeElements: hsl(0, 0%, 100%);
+
+ // ### Font
+
+--ff-Baby: 'Babylonica', cursive;
+--ff-Nunito: 'Nunito Sans', sans-serif;
+
+ --fs-home : 0.875rem;
+ --fs-details : 1rem;
+
+ --fw-1 : 300;
+ --fw-2 : 600;
+ --fw-3 : 800;
+
+}
+
+body:has(#modeCheck:checked) {
+  
+  
+}
+
+
+
+body {
+  font-family: var(--ff-Nunito);
+  font-size: var(--fs-home);
+  background-color: var(--bg);
+  transition: 0.3s;
+
+  header {
+
+    .logoWrapper {
+      background-color: lightgray;
+      padding: var(--fs-home);
+      margin-block-end: calc(var(--fs-home) * 2);
+
+      h1{
+        font-size: calc(var(--fs-home) * 1.5);
+        line-height: 0;
+      }
+  
+      label[for="modeCheck"] {
+        
+        i{
+  
+        }
+  
+        .modeCheck {
+          appearance: none;
+        }
+      }
+    }
+
+    .searchNav {
+      padding: var(--fs-home);
+      gap: var(--fs-home);
+      margin-block-end: calc(var(--fs-home) * 2);
+
+      .wrapper {
+        background-color: transparent;
+        padding: unset;
+        padding-inline: var(--fs-home);
+        border: 2px solid black;
+        i {
+
+        }
+
+        .searchInp {
+          border: none;
+          padding: var(--fs-home);
+          width: 100%;
+        }
+      }
+
+      .select {
+        align-self: flex-start;
+
+        .selectBtn {
+          gap: calc(var(--fs-home) * 3);
+          background-color: transparent;
+          border: 2px solid black;
+          padding: var(--fs-home);
+
+        }
+
+        .options {
+          position: relative;
+
+          ul {
+            border: 2px solid black;
+            position: absolute;
+            width: 100%;
+            margin-block-start: calc(var(--fs-home) / 2);
+
+            li {
+              padding-inline: var(--fs-home);
+              padding-block: calc(var(--fs-home) / 2);
+
+              button {
+                background-color: transparent;
+                border: none;
+              }
+            }
+
+            li:first-child {
+              padding-block-start: var(--fs-home);
+            }
+
+            li:last-child {
+              padding-block-start: var(--fs-home);
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  .flex {
+    display: flex;
+
+    &.btwn-cntr {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &.strt-cntr {
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &.clmn-1 {
+      flex-direction: column;
+    }
+
+    &.clmn-2 {
+      flex-direction: column;
+    }
+  }
+
+  .danger {
+    background-color: red;
+    color: white;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     details.guide-links {
       position: fixed;
