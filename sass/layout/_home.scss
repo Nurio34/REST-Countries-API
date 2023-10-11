@@ -22,6 +22,12 @@
  --fw-2 : 600;
  --fw-3 : 800;
 
+ // ### Gap
+
+ --gap-1 : 1rem;
+ --gap-2 : 2rem;
+ --gap-3 : 3rem;
+
 }
 
 body:has(#modeCheck:checked) {
@@ -34,18 +40,19 @@ body:has(#modeCheck:checked) {
 body {
   font-family: var(--ff-Nunito);
   font-size: var(--fs-home);
-  background-color: var(--bg);
   transition: 0.3s;
+
+  background-color: white;
 
   header {
 
     .logoWrapper {
+      padding: var(--gap-1);
+
       background-color: lightgray;
-      padding: var(--fs-home);
-      margin-block-end: calc(var(--fs-home) * 2);
 
       h1{
-        font-size: calc(var(--fs-home) * 1.5);
+        font-size: var(--fs-home);
         line-height: 0;
       }
   
@@ -62,22 +69,22 @@ body {
     }
 
     .searchNav {
-      padding: var(--fs-home);
-      gap: var(--fs-home);
-      margin-block-end: calc(var(--fs-home) * 2);
+      gap: var(--gap-3);
+      padding-inline: var(--gap-1);
+      margin-block: var(--gap-2);
 
       .wrapper {
-        background-color: transparent;
-        padding: unset;
-        padding-inline: var(--fs-home);
+        padding-inline: var(--gap-1);
+
         border: 2px solid black;
+
         i {
 
         }
 
         .searchInp {
           border: none;
-          padding: var(--fs-home);
+          padding: var(--gap-1);
           width: 100%;
         }
       }
@@ -86,10 +93,10 @@ body {
         align-self: flex-start;
 
         .selectBtn {
-          gap: calc(var(--fs-home) * 3);
+          gap: calc(var(--gap-3));
           background-color: transparent;
           border: 2px solid black;
-          padding: var(--fs-home);
+          padding: 1rem;
 
         }
 
@@ -100,11 +107,11 @@ body {
             border: 2px solid black;
             position: absolute;
             width: 100%;
-            margin-block-start: calc(var(--fs-home) / 2);
+            margin-block-start: calc(1rem / 2);
 
             li {
-              padding-inline: var(--fs-home);
-              padding-block: calc(var(--fs-home) / 2);
+              padding-inline: 1rem;
+              padding-block: calc(1rem / 2);
 
               button {
                 background-color: transparent;
@@ -113,11 +120,57 @@ body {
             }
 
             li:first-child {
-              padding-block-start: var(--fs-home);
+              padding-block-start: 1rem;
             }
 
             li:last-child {
-              padding-block-start: var(--fs-home);
+              padding-block-start: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    padding-inline: 3rem;
+
+    section.home {
+      
+      ul {
+
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+
+        li {
+          flex-basis: calc( (1440px - (3rem * 2) - (4rem * 3)) / 4 );
+          flex-grow: 1;
+          box-shadow: 0 0 1px 0 black;
+
+          figure {
+
+            img {
+              width: 100%;
+            }
+          }
+
+          figcaption {
+            padding-inline: 1rem;
+            padding-block: 1rem 2rem;
+
+            h2 {
+              margin-block-end: 1rem;
+            }
+
+            p{
+              font-weight: var(--fw-3);
+
+              span {
+                font-weight: var(--fw-1);
+              }
             }
           }
         }

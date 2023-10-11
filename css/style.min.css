@@ -271,50 +271,50 @@ template {
   --fw-1: 300;
   --fw-2: 600;
   --fw-3: 800;
+  --gap-1: 1rem;
+  --gap-2: 2rem;
+  --gap-3: 3rem;
 }
 
 body {
   font-family: var(--ff-Nunito);
   font-size: var(--fs-home);
-  background-color: var(--bg);
   transition: 0.3s;
+  background-color: white;
 }
 body header .logoWrapper {
+  padding: var(--gap-1);
   background-color: lightgray;
-  padding: var(--fs-home);
-  margin-block-end: calc(var(--fs-home) * 2);
 }
 body header .logoWrapper h1 {
-  font-size: calc(var(--fs-home) * 1.5);
+  font-size: var(--fs-home);
   line-height: 0;
 }
 body header .logoWrapper label[for=modeCheck] .modeCheck {
   appearance: none;
 }
 body header .searchNav {
-  padding: var(--fs-home);
-  gap: var(--fs-home);
-  margin-block-end: calc(var(--fs-home) * 2);
+  gap: var(--gap-3);
+  padding-inline: var(--gap-1);
+  margin-block: var(--gap-2);
 }
 body header .searchNav .wrapper {
-  background-color: transparent;
-  padding: unset;
-  padding-inline: var(--fs-home);
+  padding-inline: var(--gap-1);
   border: 2px solid black;
 }
 body header .searchNav .wrapper .searchInp {
   border: none;
-  padding: var(--fs-home);
+  padding: var(--gap-1);
   width: 100%;
 }
 body header .searchNav .select {
   align-self: flex-start;
 }
 body header .searchNav .select .selectBtn {
-  gap: calc(var(--fs-home) * 3);
+  gap: calc(var(--gap-3));
   background-color: transparent;
   border: 2px solid black;
-  padding: var(--fs-home);
+  padding: 1rem;
 }
 body header .searchNav .select .options {
   position: relative;
@@ -323,21 +323,52 @@ body header .searchNav .select .options ul {
   border: 2px solid black;
   position: absolute;
   width: 100%;
-  margin-block-start: calc(var(--fs-home) / 2);
+  margin-block-start: 0.5rem;
 }
 body header .searchNav .select .options ul li {
-  padding-inline: var(--fs-home);
-  padding-block: calc(var(--fs-home) / 2);
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
 }
 body header .searchNav .select .options ul li button {
   background-color: transparent;
   border: none;
 }
 body header .searchNav .select .options ul li:first-child {
-  padding-block-start: var(--fs-home);
+  padding-block-start: 1rem;
 }
 body header .searchNav .select .options ul li:last-child {
-  padding-block-start: var(--fs-home);
+  padding-block-start: 1rem;
+}
+body main {
+  padding-inline: 3rem;
+}
+body main section.home ul {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+body main section.home ul li {
+  flex-basis: calc((1440px - 6rem - 12rem) / 4);
+  flex-grow: 1;
+  box-shadow: 0 0 1px 0 black;
+}
+body main section.home ul li figure img {
+  width: 100%;
+}
+body main section.home ul li figcaption {
+  padding-inline: 1rem;
+  padding-block: 1rem 2rem;
+}
+body main section.home ul li figcaption h2 {
+  margin-block-end: 1rem;
+}
+body main section.home ul li figcaption p {
+  font-weight: var(--fw-3);
+}
+body main section.home ul li figcaption p span {
+  font-weight: var(--fw-1);
 }
 body .flex {
   display: flex;
@@ -410,6 +441,95 @@ button:active {
 }
 
 @media (min-width: 750px) {
+  body header .logoWrapper {
+    background-color: lightgray;
+    padding-inline: 3rem;
+  }
+  body header .logoWrapper h1 {
+    font-size: var(--fs-home);
+    line-height: 0;
+  }
+  body header .logoWrapper label[for=modeCheck] .modeCheck {
+    appearance: none;
+  }
+  body header .searchNav {
+    gap: 3rem;
+    padding-inline: 3rem;
+    margin-block: 2rem;
+  }
+  body header .searchNav .wrapper {
+    padding: unset;
+    padding-inline: 1rem;
+    border: 2px solid black;
+  }
+  body header .searchNav .wrapper .searchInp {
+    border: none;
+    padding: 1rem;
+    width: 100%;
+  }
+  body header .searchNav .select {
+    align-self: flex-start;
+  }
+  body header .searchNav .select .selectBtn {
+    gap: 3rem;
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 1rem;
+  }
+  body header .searchNav .select .options {
+    position: relative;
+  }
+  body header .searchNav .select .options ul {
+    border: 2px solid black;
+    position: absolute;
+    width: 100%;
+    margin-block-start: 0.5rem;
+  }
+  body header .searchNav .select .options ul li {
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+  }
+  body header .searchNav .select .options ul li button {
+    background-color: transparent;
+    border: none;
+  }
+  body header .searchNav .select .options ul li:first-child {
+    padding-block-start: 1rem;
+  }
+  body header .searchNav .select .options ul li:last-child {
+    padding-block-start: 1rem;
+  }
+  body main {
+    padding-inline: 3rem;
+  }
+  body main section.home ul {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
+  body main section.home ul li {
+    flex-basis: calc((1440px - 6rem - 12rem) / 4);
+    flex-grow: 1;
+    box-shadow: 0 0 1px 0 black;
+  }
+  body main section.home ul li figure img {
+    width: 100%;
+  }
+  body main section.home ul li figcaption {
+    padding-inline: 1rem;
+    padding-block: 1rem 2rem;
+  }
+  body main section.home ul li figcaption h2 {
+    margin-block-end: 1rem;
+  }
+  body main section.home ul li figcaption p {
+    font-weight: var(--fw-3);
+  }
+  body main section.home ul li figcaption p span {
+    font-weight: var(--fw-1);
+  }
   body .flex {
     display: flex;
   }
