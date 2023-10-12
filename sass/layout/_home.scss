@@ -3,12 +3,13 @@
 
   // ### Neutral
 
---DarkBlue--DarkModeElements-: hsl(209, 23%, 22%);
---VeryDarkBlue--DarkModeBackground-: hsl(207, 26%, 17%);
 --VeryDarkBlue--LightModeText: hsl(200, 15%, 8%);
---DarkGray--LightModeInput: hsl(0, 0%, 52%);
 --VeryLightGray--LightModeBackground: hsl(0, 0%, 98%);
+--DarkGray--LightModeInput: hsl(0, 0%, 52%);
+
 --White--DarkModeText-LightModeElements: hsl(0, 0%, 100%);
+--VeryDarkBlue--DarkModeBackground-: hsl(207, 26%, 17%);
+--DarkBlue--DarkModeElements-: hsl(209, 23%, 22%);
 
  // ### Font
 
@@ -27,7 +28,20 @@
  --gap-1 : 1rem;
  --gap-2 : 2rem;
  --gap-3 : 3rem;
+ --gap-4 : 4rem;
 
+ // ### Radius
+
+ --radius-1 : .4375rem;
+
+ // ### Box Shadow
+
+ --shadow-1 : 0 0 10px -6px var(--VeryDarkBlue--LightModeText);
+ --focusedShadow-1 : 0 0 10px 0px var(--VeryDarkBlue--LightModeText);
+
+ // ### Flag Box
+
+ --maxWidth : calc( (1440px - (var(--gap-3) * 2) - (var(--gap-4) * 3)) / 4 );
 }
 
 body:has(#modeCheck:checked) {
@@ -35,35 +49,43 @@ body:has(#modeCheck:checked) {
   
 }
 
-
-
 body {
+  *{
+    transition: 0.3s;
+  }
+
+  *:not(.logoWrapper,figcaption){
+    border-radius: var(--radius-1);
+  }
+
   font-family: var(--ff-Nunito);
   font-size: var(--fs-home);
-  transition: 0.3s;
 
-  background-color: white;
+  color: var(--VeryDarkBlue--LightModeText);
+  background-color: var(--VeryLightGray--LightModeBackground);
 
   header {
 
     .logoWrapper {
       padding: var(--gap-1);
-
-      background-color: lightgray;
+      box-shadow: var(--shadow-1);
 
       h1{
-        font-size: var(--fs-home);
+        font-size: max(var(--fs-home),1.5vw);
         line-height: 0;
       }
   
       label[for="modeCheck"] {
-        
-        i{
-  
-        }
-  
+        font-weight: var(--fw-2);
+        padding: var(--gap-1);
+        cursor: pointer;
+
         .modeCheck {
           appearance: none;
+        }
+
+        i {
+          pointer-events: none;
         }
       }
     }
@@ -74,18 +96,33 @@ body {
       margin-block: var(--gap-2);
 
       .wrapper {
-        padding-inline: var(--gap-1);
-
-        border: 2px solid black;
-
-        i {
-
-        }
+        // padding-inline: var(--gap-1) 0;
+        box-shadow: var(--shadow-1);
+        flex-grow: 1;
+        background-color: var(--VeryLightGray--LightModeBackground);
+        cursor: pointer;
 
         .searchInp {
+          background-color: transparent;
           border: none;
           padding: var(--gap-1);
+          padding-inline: unset;
           width: 100%;
+          color: var(--DarkGray--LightModeInput);
+          font-weight: var(--fw-2);
+          cursor: pointer;
+
+          &::placeholder {
+            color: var(--DarkGray--LightModeInput);
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        i {
+          padding-inline: var(--gap-1);
         }
       }
 
@@ -94,37 +131,57 @@ body {
 
         .selectBtn {
           gap: calc(var(--gap-3));
-          background-color: transparent;
-          border: 2px solid black;
-          padding: 1rem;
+          background-color: var(--VeryLightGray--LightModeBackground);
+          padding: var(--gap-1);
+          border: none;
+          box-shadow: var(--shadow-1);
 
+          &:focus-visible {
+            outline: none;
+          }
         }
 
         .options {
           position: relative;
 
           ul {
-            border: 2px solid black;
             position: absolute;
             width: 100%;
-            margin-block-start: calc(1rem / 2);
+            margin-block-start: calc(var(--gap-1) / 2);
+            box-shadow: var(--shadow-1);
+            background-color: var(--VeryLightGray--LightModeBackground);
+
+            transform: translateY(-25%);
+            opacity: 0;
+            visibility: hidden;
+
+            &.visible {
+              transform: translateY(0%);
+              opacity: 1;
+              visibility: visible;
+            }
 
             li {
-              padding-inline: 1rem;
-              padding-block: calc(1rem / 2);
-
+              padding-inline: var(--gap-1);
+              padding-block: calc(var(--gap-1) / 2.6);
+              
               button {
                 background-color: transparent;
                 border: none;
+                width: 100%;
+
+                &:focus-visible {
+                  outline: none;
+                }
               }
             }
 
             li:first-child {
-              padding-block-start: 1rem;
+              padding-block-start: calc(var(--gap-1) / 1.3);
             }
 
             li:last-child {
-              padding-block-start: 1rem;
+              padding-block-end: calc(var(--gap-1) / 1.3);
             }
           }
         }
@@ -133,22 +190,17 @@ body {
   }
 
   main {
-    padding-inline: 3rem;
+    padding-inline: var(--gap-3);
 
     section.home {
       
       ul {
-
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(calc( var(--maxWidth) ), 1fr)) ;
+        gap: var(--gap-3);
 
         li {
-          flex-basis: calc( (1440px - (3rem * 2) - (4rem * 3)) / 4 );
-          flex-grow: 1;
-          box-shadow: 0 0 1px 0 black;
+          box-shadow: var(--shadow-1);
 
           figure {
 
@@ -158,15 +210,18 @@ body {
           }
 
           figcaption {
-            padding-inline: 1rem;
-            padding-block: 1rem 2rem;
+            padding-inline: var(--gap-2);
+            padding-block-end: var(--gap-2);
 
             h2 {
-              margin-block-end: 1rem;
+              line-height: 1;
+              padding-block: var(--gap-2) var(--gap-1);
+              font-size: max(calc(var(--fs-home)) * 1.3,1vw);
+              width: fit-content;
             }
 
             p{
-              font-weight: var(--fw-3);
+              font-weight: var(--fw-2);
 
               span {
                 font-weight: var(--fw-1);
@@ -177,9 +232,9 @@ body {
       }
     }
   }
+}
 
-
-
+  //todo :  FLEX UTILS  ////////////////
   .flex {
     display: flex;
 
@@ -201,54 +256,52 @@ body {
       flex-direction: column;
     }
   }
+  //todo :  ///////////////////////////////
+
+  //todo :  STATE UTILS  ////////////////
+
+  label[for="modeCheck"],
+  .searchNav .wrapper,
+  .selectBtn,
+  .options ul,
+  .options li {
+  &.focus,
+  &:hover {
+    box-shadow: var(--focusedShadow-1) !important;
+  }
+
+  &.active {
+    box-shadow: var(--shadow-1) !important;
+    transform: scale(0.9) !important;
+  }
+  }
+  //todo :  ///////////////////////////////
 
   .danger {
     background-color: red;
     color: white;
-    padding: 1rem;
-    font-size: 2rem;
+    padding: var(--gap-1);
+    font-size: calc(var(--fs-details) * 2);
+    font-weight: var(--fw-3);
   }
 
+  details.guide-links {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: rgb(253, 31, 253);
+    cursor: pointer;
 
+    nav {
+      ul {
+        li {
+          a {
+            color: white;
+            transition: 0.2s;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    details.guide-links {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      padding: 1rem;
-      background-color: rgb(253, 31, 253);
-      cursor: pointer;
-  
-      nav {
-        ul {
-          li {
-            a {
-              color: white;
-              transition: 0.2s;
-  
-              &:hover {
-                transform: scale(1.1);
-              }
+            &:hover {
+              transform: scale(1.1);
             }
           }
         }

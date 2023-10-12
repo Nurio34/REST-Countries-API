@@ -258,12 +258,12 @@ template {
 }
 
 :root {
-  --DarkBlue--DarkModeElements-: hsl(209, 23%, 22%);
-  --VeryDarkBlue--DarkModeBackground-: hsl(207, 26%, 17%);
   --VeryDarkBlue--LightModeText: hsl(200, 15%, 8%);
-  --DarkGray--LightModeInput: hsl(0, 0%, 52%);
   --VeryLightGray--LightModeBackground: hsl(0, 0%, 98%);
+  --DarkGray--LightModeInput: hsl(0, 0%, 52%);
   --White--DarkModeText-LightModeElements: hsl(0, 0%, 100%);
+  --VeryDarkBlue--DarkModeBackground-: hsl(207, 26%, 17%);
+  --DarkBlue--DarkModeElements-: hsl(209, 23%, 22%);
   --ff-Baby: "Babylonica", cursive;
   --ff-Nunito: "Nunito Sans", sans-serif;
   --fs-home: 0.875rem;
@@ -274,24 +274,43 @@ template {
   --gap-1: 1rem;
   --gap-2: 2rem;
   --gap-3: 3rem;
+  --gap-4: 4rem;
+  --radius-1: .4375rem;
+  --shadow-1: 0 0 10px -6px var(--VeryDarkBlue--LightModeText);
+  --focusedShadow-1: 0 0 10px 0px var(--VeryDarkBlue--LightModeText);
+  --maxWidth: calc( (1440px - (var(--gap-3) * 2) - (var(--gap-4) * 3)) / 4 );
 }
 
 body {
   font-family: var(--ff-Nunito);
   font-size: var(--fs-home);
+  color: var(--VeryDarkBlue--LightModeText);
+  background-color: var(--VeryLightGray--LightModeBackground);
+}
+body * {
   transition: 0.3s;
-  background-color: white;
+}
+body *:not(.logoWrapper, figcaption) {
+  border-radius: var(--radius-1);
 }
 body header .logoWrapper {
   padding: var(--gap-1);
-  background-color: lightgray;
+  box-shadow: var(--shadow-1);
 }
 body header .logoWrapper h1 {
-  font-size: var(--fs-home);
+  font-size: max(var(--fs-home), 1.5vw);
   line-height: 0;
+}
+body header .logoWrapper label[for=modeCheck] {
+  font-weight: var(--fw-2);
+  padding: var(--gap-1);
+  cursor: pointer;
 }
 body header .logoWrapper label[for=modeCheck] .modeCheck {
   appearance: none;
+}
+body header .logoWrapper label[for=modeCheck] i {
+  pointer-events: none;
 }
 body header .searchNav {
   gap: var(--gap-3);
@@ -299,101 +318,157 @@ body header .searchNav {
   margin-block: var(--gap-2);
 }
 body header .searchNav .wrapper {
-  padding-inline: var(--gap-1);
-  border: 2px solid black;
+  box-shadow: var(--shadow-1);
+  flex-grow: 1;
+  background-color: var(--VeryLightGray--LightModeBackground);
+  cursor: pointer;
 }
 body header .searchNav .wrapper .searchInp {
+  background-color: transparent;
   border: none;
   padding: var(--gap-1);
+  padding-inline: unset;
   width: 100%;
+  color: var(--DarkGray--LightModeInput);
+  font-weight: var(--fw-2);
+  cursor: pointer;
+}
+body header .searchNav .wrapper .searchInp::placeholder {
+  color: var(--DarkGray--LightModeInput);
+}
+body header .searchNav .wrapper .searchInp:focus {
+  outline: none;
+}
+body header .searchNav .wrapper i {
+  padding-inline: var(--gap-1);
 }
 body header .searchNav .select {
   align-self: flex-start;
 }
 body header .searchNav .select .selectBtn {
   gap: calc(var(--gap-3));
-  background-color: transparent;
-  border: 2px solid black;
-  padding: 1rem;
+  background-color: var(--VeryLightGray--LightModeBackground);
+  padding: var(--gap-1);
+  border: none;
+  box-shadow: var(--shadow-1);
+}
+body header .searchNav .select .selectBtn:focus-visible {
+  outline: none;
 }
 body header .searchNav .select .options {
   position: relative;
 }
 body header .searchNav .select .options ul {
-  border: 2px solid black;
   position: absolute;
   width: 100%;
-  margin-block-start: 0.5rem;
+  margin-block-start: calc(var(--gap-1) / 2);
+  box-shadow: var(--shadow-1);
+  background-color: var(--VeryLightGray--LightModeBackground);
+  transform: translateY(-25%);
+  opacity: 0;
+  visibility: hidden;
+}
+body header .searchNav .select .options ul.visible {
+  transform: translateY(0%);
+  opacity: 1;
+  visibility: visible;
 }
 body header .searchNav .select .options ul li {
-  padding-inline: 1rem;
-  padding-block: 0.5rem;
+  padding-inline: var(--gap-1);
+  padding-block: calc(var(--gap-1) / 2.6);
 }
 body header .searchNav .select .options ul li button {
   background-color: transparent;
   border: none;
+  width: 100%;
+}
+body header .searchNav .select .options ul li button:focus-visible {
+  outline: none;
 }
 body header .searchNav .select .options ul li:first-child {
-  padding-block-start: 1rem;
+  padding-block-start: calc(var(--gap-1) / 1.3);
 }
 body header .searchNav .select .options ul li:last-child {
-  padding-block-start: 1rem;
+  padding-block-end: calc(var(--gap-1) / 1.3);
 }
 body main {
-  padding-inline: 3rem;
+  padding-inline: var(--gap-3);
 }
 body main section.home ul {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--maxWidth)), 1fr));
+  gap: var(--gap-3);
 }
 body main section.home ul li {
-  flex-basis: calc((1440px - 6rem - 12rem) / 4);
-  flex-grow: 1;
-  box-shadow: 0 0 1px 0 black;
+  box-shadow: var(--shadow-1);
 }
 body main section.home ul li figure img {
   width: 100%;
 }
 body main section.home ul li figcaption {
-  padding-inline: 1rem;
-  padding-block: 1rem 2rem;
+  padding-inline: var(--gap-2);
+  padding-block-end: var(--gap-2);
 }
 body main section.home ul li figcaption h2 {
-  margin-block-end: 1rem;
+  line-height: 1;
+  padding-block: var(--gap-2) var(--gap-1);
+  font-size: max(var(--fs-home) * 1.3, 1vw);
+  width: fit-content;
 }
 body main section.home ul li figcaption p {
-  font-weight: var(--fw-3);
+  font-weight: var(--fw-2);
 }
 body main section.home ul li figcaption p span {
   font-weight: var(--fw-1);
 }
-body .flex {
+
+.flex {
   display: flex;
 }
-body .flex.btwn-cntr {
+.flex.btwn-cntr {
   justify-content: space-between;
   align-items: center;
 }
-body .flex.strt-cntr {
+.flex.strt-cntr {
   justify-content: flex-start;
   align-items: center;
 }
-body .flex.clmn-1 {
+.flex.clmn-1 {
   flex-direction: column;
 }
-body .flex.clmn-2 {
+.flex.clmn-2 {
   flex-direction: column;
 }
-body .danger {
+
+label[for=modeCheck].focus, label[for=modeCheck]:hover,
+.searchNav .wrapper.focus,
+.searchNav .wrapper:hover,
+.selectBtn.focus,
+.selectBtn:hover,
+.options ul.focus,
+.options ul:hover,
+.options li.focus,
+.options li:hover {
+  box-shadow: var(--focusedShadow-1) !important;
+}
+label[for=modeCheck].active,
+.searchNav .wrapper.active,
+.selectBtn.active,
+.options ul.active,
+.options li.active {
+  box-shadow: var(--shadow-1) !important;
+  transform: scale(0.9) !important;
+}
+
+.danger {
   background-color: red;
   color: white;
-  padding: 1rem;
-  font-size: 2rem;
+  padding: var(--gap-1);
+  font-size: calc(var(--fs-details) * 2);
+  font-weight: var(--fw-3);
 }
-body details.guide-links {
+
+details.guide-links {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -401,19 +476,12 @@ body details.guide-links {
   background-color: rgb(253, 31, 253);
   cursor: pointer;
 }
-body details.guide-links nav ul li a {
+details.guide-links nav ul li a {
   color: white;
   transition: 0.2s;
 }
-body details.guide-links nav ul li a:hover {
+details.guide-links nav ul li a:hover {
   transform: scale(1.1);
-}
-
-button {
-  transition: 0.2s;
-}
-button:active {
-  transform: scale(0.9);
 }
 
 .ripple-btn {
@@ -442,104 +510,16 @@ button:active {
 
 @media (min-width: 750px) {
   body header .logoWrapper {
-    background-color: lightgray;
-    padding-inline: 3rem;
-  }
-  body header .logoWrapper h1 {
-    font-size: var(--fs-home);
-    line-height: 0;
-  }
-  body header .logoWrapper label[for=modeCheck] .modeCheck {
-    appearance: none;
+    padding-inline: var(--gap-3);
   }
   body header .searchNav {
-    gap: 3rem;
-    padding-inline: 3rem;
-    margin-block: 2rem;
+    padding-inline: var(--gap-3);
   }
   body header .searchNav .wrapper {
-    padding: unset;
-    padding-inline: 1rem;
-    border: 2px solid black;
-  }
-  body header .searchNav .wrapper .searchInp {
-    border: none;
-    padding: 1rem;
-    width: 100%;
-  }
-  body header .searchNav .select {
-    align-self: flex-start;
-  }
-  body header .searchNav .select .selectBtn {
-    gap: 3rem;
-    background-color: transparent;
-    border: 2px solid black;
-    padding: 1rem;
-  }
-  body header .searchNav .select .options {
-    position: relative;
-  }
-  body header .searchNav .select .options ul {
-    border: 2px solid black;
-    position: absolute;
-    width: 100%;
-    margin-block-start: 0.5rem;
-  }
-  body header .searchNav .select .options ul li {
-    padding-inline: 1rem;
-    padding-block: 0.5rem;
-  }
-  body header .searchNav .select .options ul li button {
-    background-color: transparent;
-    border: none;
-  }
-  body header .searchNav .select .options ul li:first-child {
-    padding-block-start: 1rem;
-  }
-  body header .searchNav .select .options ul li:last-child {
-    padding-block-start: 1rem;
-  }
-  body main {
-    padding-inline: 3rem;
+    max-width: calc(var(--maxWidth) * 1.5 + var(--gap-4));
   }
   body main section.home ul {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 4rem;
-  }
-  body main section.home ul li {
-    flex-basis: calc((1440px - 6rem - 12rem) / 4);
-    flex-grow: 1;
-    box-shadow: 0 0 1px 0 black;
-  }
-  body main section.home ul li figure img {
-    width: 100%;
-  }
-  body main section.home ul li figcaption {
-    padding-inline: 1rem;
-    padding-block: 1rem 2rem;
-  }
-  body main section.home ul li figcaption h2 {
-    margin-block-end: 1rem;
-  }
-  body main section.home ul li figcaption p {
-    font-weight: var(--fw-3);
-  }
-  body main section.home ul li figcaption p span {
-    font-weight: var(--fw-1);
-  }
-  body .flex {
-    display: flex;
-  }
-  body .flex.btwn-cntr {
-    justify-content: space-between;
-    align-items: center;
-  }
-  body .flex.strt-cntr {
-    justify-content: flex-start;
-    align-items: center;
+    gap: var(--gap-4);
   }
   body .flex.clmn-1 {
     flex-direction: row;
