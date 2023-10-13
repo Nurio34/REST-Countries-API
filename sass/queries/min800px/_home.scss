@@ -27,6 +27,10 @@
         }
       }
 
+      .btnsWrapper {
+        flex-direction: row !important;
+      }
+
       @media ( min-width:1440px) {
 
         section.details {
@@ -34,6 +38,7 @@
           figure {  
             display: flex; //?
             gap: calc(var(--gap-4) * 2); //?
+
           }
         }
       }

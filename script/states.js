@@ -12,12 +12,12 @@ const optionsList = document.querySelector(".options ul")
 const optionBtns = optionsList.querySelectorAll("button")
 const filterIcon = filterBtn.querySelector("i")
 let timeOut
-// BACK BUTTON
-const backBtn = document.querySelector(".backBtn")
 // BORDER COUNTRY BUTTONS
 const borderCountryBtns = document.querySelectorAll(".borderCountryBtns button")
+
 // COUNTRY BUTTONS
-const countryBtns = document.querySelectorAll(".home li button")
+let countryBtns = document.querySelectorAll(".home li button")
+let countryListBtns = document.querySelectorAll(".home li")
 
 
 //todo:     MODE BUTTON STATES    ///////////////
@@ -92,13 +92,13 @@ const countryBtns = document.querySelectorAll(".home li button")
     }))
     optionBtns.forEach(btn=> btn.addEventListener("click",e =>{
         const btnWrapper = e.target.parentElement
+
             btnWrapper.classList.add("active")
             setTimeout(() => {
                 btnWrapper.classList.remove("active")
             }, 100);
 
             optionsList.classList.remove("visible")
-                
 
             !filterIcon.classList.contains("open") ? filterIcon.classList.add("open") : filterIcon.classList.remove("open")
 
@@ -121,100 +121,42 @@ const countryBtns = document.querySelectorAll(".home li button")
     })
 //todo:     ////////////////////////////////////////////////////////
 
-//todo:     BACK BUTTON STATES     ///////////////
 
-    backBtn.addEventListener("focus",()=> {
-        backBtn.classList.add("focus")
-    })
-
-    backBtn.addEventListener("blur",()=> {
-        backBtn.classList.remove("focus")
-    })
-
-    backBtn.addEventListener("click",()=> {
-
-        backBtn.classList.add("active")
-        setTimeout(() => {
-            backBtn.classList.remove("active")
-        }, 100);
-    })
-
-    document.addEventListener("mousemove",e=> {
-        
-        if(!e.target.classList.contains("backBtn")) backBtn.blur()
-        
-    })
-
-//todo:     ////////////////////////////////////////////////////////
-
-//todo:     BORDER COUNTRY BUTTONS STATES     ///////////////
-
-    borderCountryBtns.forEach(btn=>btn.addEventListener("focus",()=> {
-        btn.classList.add("focus")
-    }))
-
-    borderCountryBtns.forEach(btn=>btn.addEventListener("blur",()=> {
-        btn.classList.remove("focus")
-    }))
-
-    borderCountryBtns.forEach(btn=>btn.addEventListener("click",()=> {
-        btn.classList.add("active")
-        setTimeout(() => {
-            btn.classList.remove("active")
-
-        }, 100);
-    }))
-
-    document.addEventListener("mousemove",e=> {
-        
-        borderCountryBtns.forEach(btn => {
-
-            if(e.target !== btn) btn.blur()  
-        })
-        
-    })
-
-//todo:     ////////////////////////////////////////////////////////
 
 //todo:     COUNTRY LIST BUTTONS STATES     ///////////////
 
-    countryBtns.forEach(btn=>btn.addEventListener("focus",()=> {
+document.addEventListener("mousemove",e=> {
+    
+    countryBtns.forEach(btn => {
         const countryItem = btn.parentElement
-        countryItem.classList.add("focus")
-        countryItem.classList.add("hover")
-    }))
-
-    countryBtns.forEach(btn=>btn.addEventListener("blur",()=> {
-        const countryItem = btn.parentElement
-        countryItem.classList.remove("focus")
-        countryItem.classList.remove("hover")
-    }))
-
-    countryBtns.forEach(btn=>btn.addEventListener("click",()=> {
-        const countryItem = btn.parentElement
-        countryItem.classList.add("active")
-        setTimeout(() => {
-            countryItem.classList.remove("active")
-
-        }, 100);
-    }))
-
-    document.addEventListener("mousemove",e=> {
         
-        countryBtns.forEach(btn => {
-            const countryItem = btn.parentElement
-            
-            if( e.target !== countryItem ) {
-                countryItem.classList.remove("focus")
-                countryItem.classList.remove("hover")
-            }
-  
-        })
-        
+        if( e.target !== countryItem ) {
+            countryItem.classList.remove("focus")
+            countryItem.classList.remove("hover")
+        }
+
     })
-
+    
+})
 
 //todo:     ////////////////////////////////////////////////////////
 
 
+//todo:     FILTER BUTtON EVENTS     ///////////////////////////////////
+
+filterBtn.addEventListener("click",(e)=> {
+    
+    !optionsList.classList.contains("visible") ? optionsList.classList.add("visible") : optionsList.classList.remove("visible")
+
+    setTimeout(() => {
+        optionsList.classList.add(`focus`)
+        optionBtns.forEach(btn => {
+            if(btn.tabIndex === 0) btn.focus()
+        })
+    }, 200);
+
+    !filterIcon.classList.contains("open") ? filterIcon.classList.add("open") : filterIcon.classList.remove("open")
+})
+
+//todo:     ///////////////////////////////////////////////////////////////
 

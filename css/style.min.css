@@ -325,13 +325,14 @@ body header .logoWrapper label[for=modeCheck] i {
 body header .searchNav {
   gap: var(--gap-3);
   padding-inline: var(--gap-1);
-  margin-block: var(--gap-2);
-  transition: 0.3s;
+  margin-block-start: var(--gap-2);
+  transition: 0.1s;
 }
 body header .searchNav.hidden {
   transform: translateX(50%);
   opacity: 0;
   visibility: hidden;
+  height: 0;
   position: absolute;
 }
 body header .searchNav .wrapper {
@@ -356,6 +357,10 @@ body header .searchNav .wrapper .searchInp::placeholder {
 }
 body header .searchNav .wrapper .searchInp:focus {
   outline: none;
+}
+body header .searchNav .wrapper datalist {
+  position: absolute;
+  top: 0;
 }
 body header .searchNav .wrapper i {
   padding-inline: var(--gap-1);
@@ -421,12 +426,17 @@ body header .searchNav .select .options ul li:last-child {
 }
 body main {
   padding-inline: var(--gap-3);
+  padding-block: var(--gap-2) var(--gap-1);
+  overflow: hidden;
+}
+body main section.home {
+  transition: 0.3s;
 }
 body main section.home.hidden {
   transform: translateX(-50%);
   opacity: 0;
   visibility: hidden;
-  position: absolute;
+  height: 0;
 }
 body main section.home ul {
   display: grid;
@@ -439,7 +449,7 @@ body main section.home ul li {
   cursor: pointer;
 }
 body main section.home ul li:hover, body main section.home ul li.hover {
-  transform: translateY(-2%) scale(1.1);
+  transform: scale(1.2);
   box-shadow: var(--focusedShadow-1);
 }
 body main section.home ul li figure {
@@ -473,17 +483,17 @@ body main section.home ul li button {
 }
 body main section.details {
   font-size: var(--fs-details);
-  padding-block-start: var(--gap-4);
-  transform: translateY(50%);
   opacity: 0;
   visibility: hidden;
-  position: absolute;
+  transform: translateY(50%); /* Start offscreen */
+  height: 0;
 }
 body main section.details.visible {
-  transform: translateY(0%);
+  padding-block-start: var(--gap-4);
   opacity: 1;
   visibility: visible;
-  position: relative;
+  transform: translateY(0); /* Bring it onscreen */
+  height: auto;
 }
 body main section.details button {
   border: none;
@@ -650,6 +660,9 @@ details.guide-links nav ul li a:hover {
   }
   body main section.home ul {
     gap: var(--gap-4);
+  }
+  body main .btnsWrapper {
+    flex-direction: row !important;
   }
 }
 @media (min-width: 750px) and (min-width: 1440px) {
