@@ -41,7 +41,14 @@
   </head>
 
   <body id="home">
-    <p class="danger">INTERAKTİF ELEMENTLERİN STATE VE KEYBORD EVENTLERİNİ DÜZELTTİM. SIRADA API İLE ETKİLEŞİM VAR // FİLTER BUTONA BASTIĞINDA İCONU DÖNDÜR // DARK MODU OLUŞTUR // DETAILS SAYFASINI OLUŞTUR</p>
+    <UL class="danger">
+      <li>FILTER BUTONLARLA ARAMA YAPMADA KALDIM</li>
+      <li>DETAILS SECTION HİDDEN İKEN SAYFANIN ALTINDA BOŞLUK OLUYO</li>
+      <li>SEARCH İLE ARAMA YAPARKEN DATADAKİ TÜM İSİMLERİ AUTOCOMPLATE OLARAK GÖSTER</li>
+      <li>FİLTER BUTONLARI REGİONLARI DATA'DAN UNİQUE OLARAK EKLE</li>
+      <li>COUNTY BUTTON'LARA KLAVYE İLE FOCUSLADIĞIMDA STATE'LERİ ALAMIYORUM</li>
+    </UL>
+   
     <!-- HEADER -->
     <header>
       <div class="logoWrapper flex btwn-cntr">
@@ -91,22 +98,55 @@
       <!-- HOME SECTION -->
       <section class="home">
         <ul>
-          <li>
-            <figure>
-              <img src="https://flagcdn.com/w320/pf.png" alt="" />
-            </figure>
-            <figcaption>
-              <h2>United States of America</h2>
-              <p>Population: <span>81.770.900</span></p>
-              <p>Region: <span>Europe</span></p>
-              <p>Capital: <span>Berlin</span></p>
-            </figcaption>
-          </li>
         </ul>
       </section>
       <!-- DETAILS SECTION -->
+      <section class="details">
+
+        <butTon class="backBtn">
+          &lt; Back
+        </butTon>
+        
+        <figure>
+          <img src="https://flagcdn.com/w320/pf.png" alt="">
+
+          <figcaption>
+
+            <h2>Belgium</h2>
+
+            <div class="wrapper flex clmn-1">
+
+              <div class="wrapper flex clmn-2">
+                <p>Native Name: <span>Belgie</span></p>
+                <p>Population: <span>11.319.511</span></p>
+                <p>Region: <span>Europe</span></p>
+                <p>Sub Region: <span>Estern Europe</span></p>
+                <p>Capital: <span>Brussels</span></p>
+              </div>
+
+              <div class="wrapper flex clmn-2">
+                <p>Top Level Domain: <span>.be</span></p>
+                <p>Currencies:  <span>Euro</span></p>
+                <p>Labguages <span>Dutch,French,German</span></p>
+              </div>
+
+            </div>
+
+            <div class="btnsWrapper">
+              <h3>Border Countries:</h3>
+              <ol class="borderCountryBtns flex">
+                <li><button>France</button></li>
+                <li><button>Germany</button></li>
+                <li><button>Netherlands</button></li>
+              </ol>
+            </div>
+
+          </figcaption>
+        </figure>
+
+      </section>
     </main>
-    <!-- DETAILS -->
+    <!-- GUIDE -->
     <details class="guide-links">
       <summary>Guides</summary>
       <nav>
@@ -124,5 +164,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./script/states.js"></script>
-  <script src="./script/script.js"></script>
+  <script src="./script/events.js"></script>
 </html>

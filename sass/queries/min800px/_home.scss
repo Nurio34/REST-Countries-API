@@ -26,6 +26,17 @@
           gap: var(--gap-4); //?
         }
       }
+
+      @media ( min-width:1440px) {
+
+        section.details {
+
+          figure {  
+            display: flex; //?
+            gap: calc(var(--gap-4) * 2); //?
+          }
+        }
+      }
     }
 
     .flex {
