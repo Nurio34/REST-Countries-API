@@ -7,7 +7,7 @@ let countryInfo = []
 
         connectAPI()
         .then(()=> {
-            firstEightCountry = data.slice(24,32)
+            firstEightCountry = data.slice(0,10)
     
     
            adjustCountriesWrapper(firstEightCountry)
